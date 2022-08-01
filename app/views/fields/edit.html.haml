@@ -1,0 +1,8 @@
+%h1
+    Edit Progress
+
+= render 'form'
+
+-# = link_to 'Show', @project
+\|
+= link_to 'Back', "/projects/"+@field.project_id.to_s

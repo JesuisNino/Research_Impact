@@ -1,0 +1,115 @@
+%h2 Create a new projec
+
+.justify-content-center
+%form.needs-validation{:novalidate => ""}
+    
+    //--------- Project Information --------------------------------------------
+    .col-md-10.form-control-lg
+        %label.form-label{:for => "projectName"} Name your new project
+        %input#title.form-control{  :type => "text", 
+                                    :placeholder=> "Project title", 
+                                    :value => "",
+                                    :required => "",
+                                    :input => :projecttitle}
+        .py-2
+        %textarea#description.form-control{ :type => "text",
+                                            :placeholder=> "Project description", 
+                                            :value => "",
+                                            :required => ""}
+        .py-2.row.g-3
+            .col-lg-6
+                .input-group.has-validation
+                %input#founder.form-control{:type => "text",
+                                            :placeholder => "Name of founder ",
+                                            :required => ""}
+            .col-lg-6
+                %input#grant.form-control{  :placeholder => "Name of grant", 
+                                            :type => "text"}
+            .col-lg-6
+                %input#DateFiled.form-control.textbox-n#date{
+                                                :type => "text",
+                                                :placeholder => "Start date",
+                                                :onfocus => "(this.type='date')"}
+            .col-lg-6
+                %input#DateFiled.form-control.textbox-n#date{
+                                                :type => "text",
+                                                :placeholder => "End date",
+                                                :onfocus => "(this.type='date')"}
+        .col-12.form-check
+            %input#active.form-check-input{     :type => "checkbox"}
+            %label Is it an active project?
+
+        //--------- New field ---------------------------------------------------
+        .new_field
+            .py-4.row.g-3
+                %label New field
+                .col-lg-6
+                    .input-group.has-validation
+                    %input#fileTitle.form-control{  :type => "text",
+                                                    :placeholder => "Title (Here you write if it was a call, meeting etc)",   
+                                                    :required => ""}
+                .col-lg-6
+                    %input#filedType.form-control{  :type => "text",
+                                                    :placeholder => "Assign the type of field(Activity/Output/Outcome)"}
+
+            %textarea#description.form-control{     :type => "text",
+                                                    :placeholder => "Body of text for the evidence (if left empty, it will point to the media file)", 
+                                                    :value => ""}
+            
+            .py-2.row.g-3    
+                .col-lg-6
+                    %input.form-control{ :list => "impact",
+                            :placeholder => "Choose or input type of impact", 
+                            :autocompile => "off"}
+                    %datalist{:id => "impact"}
+                        %option{:value => "Economic impact"}
+                        %option{:value => "Environmental impact"}
+                        %option{:value => "Understanding impact"}
+                        %option{:value => "Policy/Law/Services impact"}
+                        %option{:value => "Production impact"}
+                        %option{:value => "Professional impact"}
+
+                .col-lg-6
+                    %input#DateFiled.form-control.textbox-n#date{
+                                                    :type => "text",
+                                                    :placeholder => "Date when this field happened",
+                                                    :onfocus => "(this.type='date')"}
+
+            %input#contacts.form-control{           :type => "text", 
+                                                    :placeholder => "(Optional) Industry contacts, partners, etc for this particular evidence", 
+                                                    :value => "", 
+                                                    :required => ""}
+            .py-2
+                %textarea#description.form-control{ :type => "text",
+                                                    :placeholder => "(Optional) Write your comments on the evidence?", 
+                                                    :value => ""}
+        
+            .py-3
+                %input.btn.btn-warning{     :type => "file", 
+                                            :multiple =>true}
+
+        //--------- User Search -------------------------------------------------------
+        .py-5
+            %p (Optional) Add other users to your project
+            %label Users with edit rights:  
+            %input#contacts.form-control{               :type => "search", 
+                                                        :placeholder => "Search users", 
+                                                        :value => "",
+                                                        :required => ""}
+        .py-4
+            %label Users with view rights:
+            %input#contacts.form-control{               :type => "search",
+                                                        :placeholder => "Search users",
+                                                        :value => ""}
+        
+        //--------- Submit, Cancel button ----------------------------------------------
+        .py-5.row
+            .col-lg-6
+            .col-lg-3
+                %a{:href=>"/"} Cancel project 
+            .col-lg-3
+                %button.btn.btn-warning{    :type => "submit", 
+                                            :value => "Submit"} Create new projectt
+        
+
+        

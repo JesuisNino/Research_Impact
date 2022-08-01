@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Projecttitle:
+  = @project_table.projecttitle
+%p
+  %b Projectdescription:
+  = @project_table.projectdescription
+%p
+  %b Founder name:
+  = @project_table.founder_name
+%p
+  %b Grant name:
+  = @project_table.grant_name
+%p
+  %b Start date:
+  = @project_table.start_date
+%p
+  %b End date:
+  = @project_table.end_date
+%p
+  %b Is active:
+  = @project_table.is_active
+
+= link_to 'Edit', edit_project_table_path(@project_table)
+\|
+= link_to 'Back', project_tables_path

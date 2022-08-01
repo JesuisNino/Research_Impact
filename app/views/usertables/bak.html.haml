@@ -1,0 +1,43 @@
+
+
+
+
+
+
+%h1 My Profile
+
+- @usertables.each do |usertable|
+
+  - if usertable.email == current_user.email
+    .container
+
+      %p
+      .row 
+        .col-4
+          %div{:style => "width:260px; height:auto"}
+            - if usertable.persisted?
+              - if usertable.profile_image.present?
+                = image_tag(usertable.profile_image, style:'width:100%')
+        .col-4
+
+          %p.h3  
+            = usertable.title
+          %p.h4
+            = usertable.fname
+            = usertable.sname
+          %br
+          %p.h3
+            Department
+          %p.h4
+            = usertable.department
+          %br
+          %p.h3
+            E-mail 
+          %p.h4  
+            = usertable.email
+        .col-2.align-self-center
+          %br
+          %button.btn.btn-warning.btn-lg{:type => "button"}
+            - @usertables.each do |usertable|
+              - if usertable.email == current_user.email
+                = link_to 'Edit', edit_usertable_path(usertable)

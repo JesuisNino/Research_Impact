@@ -1,0 +1,68 @@
+%h2 Editing " /get title from the db" field details
+.row
+    .col-md-6.py-2
+        %h6 created by "link author in db" on "link date in db"
+    .col-md-3
+    .col-md-3
+        %button.btn.btn-warning{    :type => "submit", 
+                                    :value => "Complete"} Delete field
+
+.justify-content-center
+%form.needs-validation{:novalidate => ""}
+    .col-md-10.form-control-lg
+        #new_field
+            .py-4.row.g-3
+                .col-lg-6
+                    .input-group.has-validation
+                    %input#fileTitle.form-control{  :type => "text",
+                                                    :placeholder => "Title (Here you write if it was a call, meeting etc)",   
+                                                    :required => ""}
+                .col-lg-6
+                    %input#filedType.form-control{  :type => "text",
+                                                    :placeholder => "Assign the type of field(Activity/Output/Outcome)"}
+
+            %textarea#description.form-control{     :type => "text",
+                                                    :placeholder => "Body of text for the evidence (if left empty, it will point to the media file)", 
+                                                    :value => ""}
+            
+            .py-2.row.g-3    
+                .col-lg-6
+                    %input.form-control{ :list => "impact",
+                            :placeholder => "Choose or input type of impact", 
+                            :autocompile => "off"}
+                    %datalist{:id => "impact"}
+                        %option{:value => "Economic impact"}
+                        %option{:value => "Environmental impact"}
+                        %option{:value => "Understanding impact"}
+                        %option{:value => "Policy/Law/Services impact"}
+                        %option{:value => "Production impact"}
+                        %option{:value => "Professional impact"}
+
+                .col-lg-6
+                    %input#DateFiled.form-control.textbox-n#date{
+                                                    :type => "text",
+                                                    :placeholder => "Date when this field happened",
+                                                    :onfocus => "(this.type='date')"}
+
+            %input#contacts.form-control{           :type => "text", 
+                                                    :placeholder => "(Optional) Industry contacts, partners, etc for this particular evidence", 
+                                                    :value => "", 
+                                                    :required => ""}
+            .py-2
+                %textarea#description.form-control{ :type => "text",
+                                                    :placeholder => "(Optional) Write your comments on the evidence?", 
+                                                    :value => ""}
+        
+            .py-3
+                %input.btn.btn-warning{     :type => "file", 
+                                            :multiple =>true}
+
+        .py-5.row
+            .col-md-6
+            .col-md-3
+                -# = mock button implement
+                -# = change to main page when the page is implemented.
+                %a{:href=>"/profile"} Cancel edit 
+            .col-md-3
+                %button.btn.btn-warning{    :type => "submit", 
+                                            :value => "Complete"} Renew the field

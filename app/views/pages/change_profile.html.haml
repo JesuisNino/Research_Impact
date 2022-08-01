@@ -1,0 +1,81 @@
+!!!
+%html
+  %head
+    %link{:href => "change_profile_css.css", :rel => "stylesheet", :type => "text/css"}/
+  %body
+    / Need link to db
+    %form.change{:action => "to_database", :method => "post"}
+      .pic
+        %img{:src => "..\\pic\\user_default_pic.png"}/
+        / src need to change
+        %br/
+        %input{:type => "file"}/
+      .main
+        %input{:checked => "checked", :name => "title", :type => "radio", :value => "Dr."}/
+        Dr.
+        %input{:name => "title", :type => "radio", :value => "Prof."}/
+        Prof.
+        %p First name:
+        %input{:name => "fst_name: ", :placeholder => "", :type => "text", :value => ""}/
+        / placeholder and value need to link db
+        %p Last name:
+        %input{:name => "last_name: ", :placeholder => "", :type => "text", :value => ""}/
+        / palceholder and value need to link db
+        %p Department:
+        %input{:list => "browsers"}/
+        %datalist#browsers
+          %option{:value => "Aerospace Engineering"}
+          %option{:value => "Archaeology"}
+          %option{:value => "Architecture"}
+          %option{:value => "AutomaticControl and Systems Engineering"}
+          %option{:value => "Bioengineering"}
+          %option{:value => "Biosciences"}
+          %option{:value => "Chemical and Biological Engineering"}
+          %option{:value => "Chemistry"}
+          %option{:value => "CITY College, Thessaloniki "}
+          %option{:value => "Civil and Structural Engineering"}
+          %option{:value => "Clinical Psychology"}
+          %option{:value => "Computer Science"}
+          %option{:value => "Dentistry"}
+          %option{:value => "East Asian Studies"}
+          %option{:value => "Economics"}
+          %option{:value => "Education"}
+          %option{:value => "Electronic and Electrical Engineering"}
+          %option{:value => "English"}
+          %option{:value => "French"}
+          %option{:value => "Geography"}
+          %option{:value => "Germanic Studies"}
+          %option{:value => "Health and Related Research"}
+          %option{:value => "Hispanic Studies"}
+          %option{:value => "Human Communication Sciences"}
+          %option{:value => "Infection, Immunity and Cardiovascular Disease"}
+          %option{:value => "Information School"}
+          %option{:value => "Journalism Studies"}
+          %option{:value => "Landscape"}
+          %option{:value => "Languages and Cultures"}
+          %option{:value => "Law"}
+          %option{:value => "Lifelong Learning"}
+          %option{:value => "Management School"}
+          %option{:value => "Materials Science and Engineering"}
+          %option{:value => "Mathematics and Statistics"}
+          %option{:value => "Mechanical Engineering"}
+          %option{:value => "Modern Languages Teaching Centre"}
+          %option{:value => "Music"}
+          %option{:value => "Neuroscience"}
+          %option{:value => "Nursing and Midwifery"}
+          %option{:value => "Oncology and Metabolism"}
+          %option{:value => "Orthoptics"}
+          %option{:value => "Philosophy"}
+          %option{:value => "Physics and Astronomy"}
+          %option{:value => "Politics"}
+          %option{:value => "Psychology"}
+          %option{:value => "Religion, Theology and the Bible"}
+          %option{:value => "Russian and Slavonic Studies"}
+          %option{:value => "Sociological Studies"}
+          %option{:value => "Town and Regional Planning"}
+        %p E-mail:
+        %input{:name => "Email", :type => "email", :value => ""}/
+      .btn
+        %input{:type => "submit", :value => "Submit"}/
+        %br/
+        %input{:onclick => "history.back()", :type => "button", :value => "Cancel"}/

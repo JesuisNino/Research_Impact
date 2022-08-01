@@ -1,0 +1,24 @@
+%p
+  %b Fname:
+  = @usertable.fname
+%p
+  %b Sname:
+  = @usertable.sname
+%p
+  %b Department:
+  = @usertable.department
+%p
+  %b Email:
+  = @usertable.email
+%p
+  %b Title:
+  = @usertable.title
+%p
+  %b Profilepic:
+  = @usertable.profilepic
+
+
+
+= link_to 'Edit', edit_usertable_path(@usertable)
+\|
+= link_to 'Back', usertables_path

@@ -1,0 +1,21 @@
+%h1
+    - @projects.each do |project|
+        = "New Progress for "+project.name
+
+= render 'form'
+%br
+%button.btn.btn-warning.btn-lg.me-1{:type => "button"}
+    = link_to 'Back', "/projects/"+@field.project_id.to_s
+
+
+
+-# = simple_form_for(@field) do |f|
+-#     = f.input :title, label: 'Title'
+-#     = f.input :field_type, label: 'Field Type'
+-#     = f.input :evidence, label: 'Evidence'
+-#     = f.input :impactType, label: 'Impact Type'
+-#     = f.input :date, label: 'Date'
+-#     = f.input :contacts, label: 'Field Industry Contacts, Partners etc.'
+-#     = f.input :comments, label: 'Evidence comments'
+-#     = f.association :project
+-#     = f.button :submit

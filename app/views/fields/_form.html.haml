@@ -1,0 +1,18 @@
+= simple_form_for(@field) do |f|
+    = f.input :title, label: 'Title', error: "Enter title of this piece of progress"
+    = f.input :field_type, label: 'Progress Type', error: "Enter the type of progress"
+    = f.input :impactType, label: 'Impact Type', error: "Enter the type of impact"
+    = f.input :date, label: 'Date', error: "Enter a data for this piece of progress"
+    = f.input :contacts, label: 'Industry Contacts, Partners etc.'
+    .form-file-inputs 
+        %p
+            Evidence Attachments
+        %p
+            = f.file_field :files
+    = f.input :comments, label: 'Evidence comments'
+    #divSend{style: "visibility: hidden"}
+        = f.association :project
+
+    %button.btn.btn-warning.btn-lg.me-1{:type => "button"}
+        = f.button :submit, "Publish Progress"
+

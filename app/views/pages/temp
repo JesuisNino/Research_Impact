@@ -1,0 +1,16 @@
+-# frozen_string_literal: true
+= simple_form_for(@project_table) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :projecttitle
+    = f.input :projectdescription
+    = f.input :founder_name
+    = f.input :grant_name
+    = f.input :start_date
+    = f.input :end_date
+    = f.input :is_active
+
+  .form-actions
+    = f.button :submit

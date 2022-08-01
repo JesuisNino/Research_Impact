@@ -1,0 +1,55 @@
+%h1 My Projects
+
+= simple_form_for :search, url: search_projects_path, method: :post do |f|
+  = f.input :name, placeholder: "Search for Project..."
+  = f.submit 'Search', class: "btn-warning"
+  = link_to 'Reset', projects_path
+
+%br
+
+%a.btn.btn-lg.btn-warning{:href=>"/projects/new"} New Project
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Founder
+      %th Grant
+      %th Start Date
+      %th End Date
+      %th Active?
+      %th
+      %th
+      %th
+
+
+  %tbody
+    - @projects.each do |project|
+      %tr
+        %td= project.name
+        %td= project.description
+        %td= project.founder
+        %td= project.grant
+        %td= project.start
+        %td= project.end 
+        %td= if project.active? then "Yes" else "No" end
+        %td= link_to 'View Project', project
+        %td= link_to 'Edit', edit_project_path(project)
+        %td= link_to 'Delete', project, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+
+
+
+    -# - @projects.each do |project|
+    -#   %tr
+    -#     %td= project.name
+    -#     %td= project.description
+    -#     %td= project.founder
+    -#     %td= project.grant
+    -#     %td= project.start
+    -#     %td= project.end 
+    -#     %td= if project.active? then "Yes" else "No" end
+    -#     %td= link_to 'View Project', project
+    -#     %td= link_to 'Edit', edit_project_path(project)
+    -#     %td= link_to 'Delete', project, :method => :delete, :data => { :confirm => 'Are you sure?' }

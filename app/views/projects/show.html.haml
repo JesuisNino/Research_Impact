@@ -1,0 +1,126 @@
+%p.h2
+  = @project.name
+%p
+  = @project.description
+
+%hr
+
+%table{:width=>"70%",:border=>"0"}
+  %tr
+    %th Created by:
+    %th Grants:
+    %th Project Start:
+    %th Project End:
+    %th Active Project:
+  %tr
+    %td
+      = @project.founder
+    %td 
+      = @project.grant
+    %td
+      = @project.start
+    %td 
+      = @project.end
+    %td 
+      = @project.active
+
+%hr
+
+%table{:width=>"70%",:border=>"0"}
+  %tr
+    %th Contributors:
+    %th Invite Contributor:
+  %tr
+    %td
+      = @project.invites
+    %td 
+      = form_with(model: @project, method: "patch") do |form|
+        = form.text_field :invites, placeholder:"someone@sheffield.ac.uk", :value => ""
+        = form.submit :value => "Invite"
+        
+%hr
+%br
+
+
+%button.btn.btn-warning{:type => "button"}
+  = link_to 'Export Project as PDF', export_project_path(format:"pdf")
+  
+%br
+%br
+%h4 Progress
+
+
+
+- @project_fields = Field.where(project_id: @project)
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Title
+      %th Progress Type
+      %th Impact Type
+      %th Date
+      %th Industry Contacts, Partners etc.
+      %th Evidence Attachments
+      %th Evidence Comments
+      %th
+      %th
+      %th
+
+
+  %tbody
+    - @project_fields.each do |field|
+      %tr
+        %td= field.title
+        %td= field.field_type
+        %td= field.impactType
+        %td= field.date
+        %td= field.contacts
+        %td      
+          - if field.persisted?
+            - if field.files.present?
+              - field.files.each do |file|
+                = link_to file.filename, rails_blob_path(file, disposition: :attachment)
+        %td= field.comments
+        %td= link_to 'Edit', edit_field_path(field)
+        %td= link_to 'Delete', field, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+-# # Table name: fields
+-# #
+-# #  id         :bigint           not null, primary key
+-# #  comments   :text
+-# #  contacts   :text
+-# #  date       :date
+-# #  evidence   :text
+-# #  field_type :string
+-# #  impactType :string
+-# #  title      :string
+-# #  created_at :datetime         not null
+-# #  updated_at :datetime         not null
+-# #  project_id :integer
+
+
+
+
+
+
+
+
+
+
+
+
+
+//%a.btn.btn-warning{:href=>"#"} Add new field
+%button.btn.btn-warning.btn-lg{:type => "button"}
+  = link_to 'Add Progress', new_field_path(@project, :project_id => @project.id)
+
+
+%br
+
+%p
+%button.btn.btn-warning.me-2{:type => "button"} 
+  = link_to 'Edit', edit_project_path(@project, :project_id => @project.id)
+
+%button.btn.btn-warning{:type => "button"}
+  = link_to 'Back', projects_path

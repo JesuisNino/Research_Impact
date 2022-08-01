@@ -1,0 +1,56 @@
+%h2 Editing " /get title from the db" field details
+.row
+    .col-md-6.py-2
+        %h6 created by "link author in db" on "link date in db"
+    .col-md-3
+    .col-md-3
+        %button.btn.btn-warning{    :type => "submit", 
+                                    :value => "Complete"} Delete Project 
+        // ---------Need alert to delete--------------------------------------
+
+.justify-content-center
+%form.needs-validation{:novalidate => ""}
+    .col-md-10.form-control-lg
+        .col-md-10.form-control-lg
+        %label.form-label{:for => "projectName"} Name your project
+        %input#title.form-control{  :type => "text", 
+                                    :placeholder=> "Project titile", 
+                                    :value => "",
+                                    :required => ""}
+        .py-2
+        %textarea#description.form-control{ :type => "text",
+                                            :placeholder=> "Project description", 
+                                            :value => "",
+                                            :required => ""}
+        .py-2.row.g-3
+            .col-lg-6
+                .input-group.has-validation
+                %input#founder.form-control{:type => "text",
+                                            :placeholder => "Name of founder ",
+                                            :required => ""}
+            .col-lg-6
+                %input#grant.form-control{  :placeholder => "Name of grant", 
+                                            :type => "text"}
+            .col-lg-6
+                %input#DateFiled.form-control.textbox-n#date{
+                                                :type => "text",
+                                                :placeholder => "Start date",
+                                                :onfocus => "(this.type='date')"}
+            .col-lg-6
+                %input#DateFiled.form-control.textbox-n#date{
+                                                :type => "text",
+                                                :placeholder => "End date",
+                                                :onfocus => "(this.type='date')"}
+        .col-12.form-check
+            %input#active.form-check-input{     :type => "checkbox"}
+            %label Is it an active project?
+
+        .py-5.row
+            .col-md-6
+            .col-md-3
+                -# = mock button implement
+                -# = change to main page when the page is implemented.
+                %a{:href=>"/profile"} Cancel edit 
+            .col-md-3
+                %button.btn.btn-warning{    :type => "submit", 
+                                            :value => "Complete"} renew project

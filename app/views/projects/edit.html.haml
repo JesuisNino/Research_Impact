@@ -1,0 +1,10 @@
+%h1 Editing project
+
+= render 'form'
+
+%br
+%button.btn.btn-warning.btn-lg.me-1{:type => "button"}
+  = link_to 'Invite', @project
+
+%button.btn.btn-warning.btn-lg.me-1{:type => "button"}
+  = link_to 'Back', projects_path

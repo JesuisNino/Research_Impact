@@ -1,0 +1,58 @@
+-# frozen_string_literal: true
+
+
+= simple_form_for(@usertable) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+  .container
+    .row
+      .col-4
+        .form-file-inputs 
+          %p
+            Choose Your profile Picture
+            = f.file_field :profile_image
+      .col-5
+        %b Title:
+        .form-check.p-0
+          = f.radio_button :title, 'Mr.', :checked => true
+          = f.label :title, "Mr.", :value => "Mr"
+          = f.radio_button :title, 'Mrs.'
+          = f.label :title, "Mrs.", :value => "Mrs"
+          = f.radio_button :title, 'Miss.'
+          = f.label :title, "Miss.", :value => "Miss"
+          = f.radio_button :title, 'Dr.'
+          = f.label :title, "Dr.", :value => "Dr"
+          = f.radio_button :title, 'prof.'
+          = f.label :title, "Prof.", :value => "Prof"
+          
+          /= f.input_field :title, collection: ['Mr', 'Mrs', 'Miss', 'Ms', 'Dr', 'Prof']
+        .form-inputs  
+          %p
+          %b First Name:
+          %br
+          = f.input_field :fname
+          %p
+          %b Second Name:
+          %br
+          = f.input_field :sname
+          %p
+          %b Department:
+          %br
+          = f.input_field :department
+          %p
+          %b E-mail:
+          %br
+          = f.input_field :email
+          %p
+          /%b Edit Profile Picture:
+          /%br
+          /= f.input_field :profilepic
+          /%p
+
+      .col-3.align-self-center
+        .form-actions
+          %button.btn.btn-warning.btn-sm{:type => "button"}
+            = f.button :submit, 'Save'
+          %br
+          %button.btn.btn-outline-warning.btn-lg{:type => "button"}
+            = link_to 'Back', usertables_path

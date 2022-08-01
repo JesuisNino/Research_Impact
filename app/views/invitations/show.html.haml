@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Email:
+  = @invitation.email
+%p
+  %b Projecttitle:
+  = @invitation.projecttitle
+%p
+  %b Projectid:
+  = @invitation.projectid
+
+= link_to 'Edit', edit_invitation_path(@invitation)
+\|
+= link_to 'Back', invitations_path

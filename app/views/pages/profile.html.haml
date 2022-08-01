@@ -1,0 +1,15 @@
+#form-container
+    .user_info
+      %form{:action => "/changeProfile", :method => "get"}
+        %img{:src =>}
+        / src need to link to db
+        %p Dr
+        = current_user.givenname + " " + current_user.sn
+        %p
+        = current_user.email
+        %p
+        = "Department: "+current_user.ou
+        %p
+      .col-lg-3  
+        %a{:href => "change_profile.html"}
+          %button.btn.btn-warning{:type => "button"} Edit Details

@@ -1,0 +1,23 @@
+-# This is what we should change!!!!!!!!!!!!!!!!!!!!!
+-# 
+-# -# This is what we should change!!!!!!!!!!!!!!!!!!!!!
+-# 
+-# 
+- content_for :title, 'Log In'
+
+
+-# The below code is required for the login system
+
+.row.justify-content-center
+  .col-sm-6.col-lg-4
+    .card.card-light
+      = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .card-header
+          Log In
+        .card-body
+          = f.input :username, autofocus: true
+          = f.input :password, required: true
+        .card-footer
+          %button.btn.btn-primary{ type: :submit }
+            Log in
+          .mt-3= render "devise/shared/links"

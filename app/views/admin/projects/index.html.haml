@@ -1,0 +1,56 @@
+%h1 Admin Page
+%br
+%h3 Listing all projects on the system:
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Founder
+      %th Grant
+      %th Start Date
+      %th End Date
+      %th Active?
+      %th
+      %th
+      %th
+
+  /need to show all projects
+  %tbody
+    - @allprojects = Project.all
+    - @allprojects.each do |project|
+      %tr
+        %td= project.name
+        %td= project.description
+        %td= project.founder
+        %td= project.grant
+        %td= project.start
+        %td= project.end 
+        %td= if project.active? then "Yes" else "No" end
+        /%td= link_to 'View Project', project
+        /%td= link_to 'Edit', edit_project_path(project)
+        %td= link_to 'Delete', project, :method => :delete, :data => { :confirm => 'Are you sure?' }
+%br
+
+  /if the admin is nto the super admin, they cannot invite or dismiss.
+
+%p.h3 List of current admins:
+%p
+  = current_user.email
+
+%p.h3 List of current super-admins:
+%p josborne6@sheffield.ac.uk
+%p
+%b NOTE: only super-admins can add / delete other admins.
+
+            
+
+          
+
+        
+        
+
+
+
+

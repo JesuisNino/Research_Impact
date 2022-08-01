@@ -1,0 +1,17 @@
+-# frozen_string_literal: true
+= simple_form_for(@project) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    = f.input :name, placeholder:"Project title", error: "Enter a project title"
+    = f.input :description, placeholder:"Project description", error: "Enter a project description"
+    = f.input :founder, placeholder:"Name of founder", error: "Enter a founder"
+    = f.input :grant, placeholder:"Amount of grant"
+    = f.input :start
+    = f.input :end
+    = f.input :active, wrapper: :custom_boolean_switch, error: "Select project status"
+       
+  .form-actions
+    %button.btn.btn-warning.btn-lg{:type => "button"}
+      = f.button :submit, class: "btn-warning"

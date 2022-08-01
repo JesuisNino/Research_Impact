@@ -1,0 +1,25 @@
+%h1 Projects you have access to:
+
+%table{:style=>"width: 60%"}
+  %thead
+    %tr
+      %th Title of Project
+      %th Created by
+      %th Date Created
+      %th
+      %th
+      %th
+
+  %tbody
+    - @project_tables.each do |project_table|
+      %tr
+        %td= project_table.projecttitle
+        %td= project_table.founder_name
+        %td= project_table.start_date
+        %td= link_to 'View', project_table
+        %td= link_to 'Edit', edit_project_table_path(project_table)
+        %td= link_to 'Delete', project_table, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'Create Project', new_project_table_path
